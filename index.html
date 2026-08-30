@@ -1,74 +1,141 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
-		<title>Priya's Corner of the Web</title>
+		<title>Welcome to My Corner of the Web</title>
 		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<style>
+			body {
+				font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+				line-height: 1.6;
+				color: #222222;
+				background-color: #fafafa;
+				margin: 0;
+				padding: 0;
+			}
+			.container {
+				max-width: 680px;
+				margin: 0 auto;
+				padding: 60px 20px;
+			}
+			header {
+				text-align: center;
+				margin-bottom: 50px;
+			}
+			h1 {
+				font-size: 2.2rem;
+				font-weight: 700;
+				margin-bottom: 10px;
+				color: #111111;
+			}
+			.subtitle {
+				font-size: 1.1rem;
+				color: #666666;
+				margin-top: 0;
+			}
+			.intro-text {
+				font-size: 1.15rem;
+				margin-bottom: 50px;
+			}
+			.section-title {
+				font-size: 1.5rem;
+				border-bottom: 2px solid #eeeeee;
+				padding-bottom: 8px;
+				margin-top: 40px;
+				margin-bottom: 25px;
+			}
+			.article-list {
+				list-style: none;
+				padding: 0;
+				margin: 0 0 50px 0;
+			}
+			.article-item {
+				margin-bottom: 25px;
+			}
+			.article-item a {
+				font-size: 1.2rem;
+				font-weight: 600;
+				color: #0066cc;
+				text-decoration: none;
+			}
+			.article-item a:hover {
+				text-decoration: underline;
+			}
+			.article-item p {
+				margin: 5px 0 0 0;
+				color: #555555;
+			}
+			.cta-box {
+				background-color: #ffffff;
+				border: 1px solid #e0e0e0;
+				border-radius: 8px;
+				padding: 30px;
+				text-align: center;
+				margin-top: 50px;
+			}
+			.cta-box p {
+				font-size: 1.1rem;
+				margin-bottom: 20px;
+			}
+			.mail-btn {
+				display: inline-block;
+				background-color: #111111;
+				color: #ffffff;
+				padding: 12px 24px;
+				border-radius: 5px;
+				text-decoration: none;
+				font-weight: 600;
+			}
+			.mail-btn:hover {
+				background-color: #333333;
+			}
+			footer {
+				text-align: center;
+				font-size: 0.9rem;
+				color: #888888;
+				margin-top: 60px;
+			}
+		</style>
 	</head>
-	<body class="is-preload">
+	<body>
 
-		<!-- Wrapper -->
-			<div id="wrapper">
+		<div class="container">
 
-				<!-- Main -->
-					<div id="main">
-						<div class="inner">
+			<!-- Centered Main Title -->
+			<header>
+				<h1>Welcome to My Corner of the Web</h1>
+				<p class="subtitle">A simple space for ideas, questions, and stories.</p>
+			</header>
 
-							<!-- Header -->
-								<header id="header">
-									<a href="index.html" class="logo"><strong>Priya's Portfolio</strong></a>
-								</header>
-
-							<!-- Banner -->
-								<section id="banner">
-									<div class="content">
-										<header>
-											<h1>Welcome to My Corner<br />
-											of the Web</h1>
-											<p>Est. 1999 — Handcrafted with HTML & Passion</p>
-										</header>
-										<p>Hey, glad you made it! Back in the day, having a website meant building your own space from scratch instead of just renting a profile on a social app. That’s what this place is—a simple spot where I post long-form thoughts, project updates, and whatever else is on my mind. No algorithms, no endless scrolling, just a good old-fashioned home on the internet.</p>
-									</div>
-									<span class="image object">
-										<img src="images/pic10.jpg" alt="" />
-									</span>
-								</section>
-
-						</div>
-					</div>
-
-				<!-- Sidebar -->
-					<div id="sidebar">
-						<div class="inner">
-
-							<!-- Menu -->
-								<nav id="menu">
-									<header class="major">
-										<h2>Navigation</h2>
-									</header>
-									<ul>
-										<li><a href="index.html">Homepage</a></li>
-										<li><a href="generic.html">About Me</a></li>
-									</ul>
-								</nav>
-
-							<!-- Footer -->
-								<footer id="footer">
-									<p class="copyright">&copy; Priya. All rights reserved. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
-								</footer>
-
-						</div>
-					</div>
-
+			<!-- Human Bio Paragraph -->
+			<div class="intro-text">
+				<p>Hello! My name is Priya Tiwari. I read and write for a living. I built this space to share my work and explore questions that keep me thinking. Whenever something catches my curiosity, I research it, write about it, and share it here.</p>
 			</div>
 
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+			<!-- Articles Section -->
+			<h2 class="section-title">Articles & Thoughts</h2>
+			<ul class="article-list">
+				<li class="article-item">
+					<a href="#">First Essay Title Goes Here</a>
+					<p>A quick one-line summary of what this piece is about.</p>
+				</li>
+				<li class="article-item">
+					<a href="#">Second Essay Title Goes Here</a>
+					<p>A quick one-line summary of what this piece is about.</p>
+				</li>
+			</ul>
+
+			<!-- Closing & Contact Box -->
+			<div class="cta-box">
+				<p>If you enjoy reading these pieces, come along for the ride. Let's learn and explore together. Looking for a writer for your next project? Drop me a line!</p>
+				<a class="mail-btn" href="mailto:tiwaripriya194@gmail.com">Mail Me</a>
+			</div>
+
+			<footer>
+				<p>&copy; Priya Tiwari</p>
+			</footer>
+
+		</div>
 
 	</body>
 </html>
