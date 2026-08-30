@@ -6,12 +6,12 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<style>
 			:root {
-				--bg-color: #fcfcfc;
-				--card-bg: #ffffff;
-				--text-main: #111111;
-				--text-muted: #666666;
-				--border-color: #eeeeee;
-				--accent-color: #000000;
+				--bg-color: #f4f6f0;        /* Soft sage cream background */
+				--card-bg: #ffffff;          /* Pure white card backgrounds */
+				--text-main: #222b28;        /* Deep charcoal-green text */
+				--text-muted: #5a6660;       /* Soft olive-gray subtitle text */
+				--accent-color: #2d5a43;     /* Forest green primary accent */
+				--border-color: #e2e7e1;     /* Soft greenish-gray borders */
 			}
 
 			* {
@@ -25,23 +25,24 @@
 				background-color: var(--bg-color);
 				color: var(--text-main);
 				line-height: 1.6;
-				padding: 40px 20px;
+				padding: 50px 20px;
 				-webkit-font-smoothing: antialiased;
 			}
 
 			.container {
-				max-width: 620px;
+				max-width: 640px;
 				margin: 0 auto;
 			}
 
-			/* Banner Image */
+			/* Header Banner Image */
 			.profile-image {
 				width: 100%;
-				height: 260px;
+				height: 280px;
 				object-fit: cover;
 				object-position: top;
-				border-radius: 8px;
+				border-radius: 12px;
 				margin-bottom: 35px;
+				box-shadow: 0 4px 12px rgba(45, 90, 67, 0.08);
 			}
 
 			/* Bio Header */
@@ -50,15 +51,15 @@
 			}
 
 			h1 {
-				font-size: 1.6rem;
+				font-size: 1.8rem;
 				font-weight: 600;
 				letter-spacing: -0.02em;
-				margin-bottom: 8px;
-				color: var(--text-main);
+				margin-bottom: 10px;
+				color: var(--accent-color);
 			}
 
 			.bio {
-				font-size: 1.05rem;
+				font-size: 1.1rem;
 				color: var(--text-muted);
 				font-weight: 400;
 			}
@@ -67,10 +68,10 @@
 			.section-label {
 				font-size: 0.85rem;
 				text-transform: uppercase;
-				letter-spacing: 0.05em;
-				color: var(--text-muted);
+				letter-spacing: 0.08em;
+				color: var(--accent-color);
 				margin-bottom: 20px;
-				font-weight: 600;
+				font-weight: 700;
 			}
 
 			/* Writing List */
@@ -79,45 +80,50 @@
 			}
 
 			.article-item {
-				border-top: 1px solid var(--border-color);
-				padding: 20px 0;
+				background-color: var(--card-bg);
+				border: 1px solid var(--border-color);
+				border-radius: 10px;
+				padding: 24px;
+				margin-bottom: 16px;
+				transition: border-color 0.2s ease, transform 0.2s ease;
 			}
 
-			.article-item:last-child {
-				border-bottom: 1px solid var(--border-color);
+			.article-item:hover {
+				border-color: var(--accent-color);
+				transform: translateY(-2px);
 			}
 
 			.article-title {
-				font-size: 1.1rem;
-				font-weight: 500;
+				font-size: 1.15rem;
+				font-weight: 600;
 				color: var(--text-main);
 				text-decoration: none;
 				display: block;
-				margin-bottom: 4px;
-				transition: color 0.15s ease;
+				margin-bottom: 6px;
 			}
 
 			.article-title:hover {
-				color: var(--text-muted);
+				color: var(--accent-color);
 			}
 
 			.article-summary {
-				font-size: 0.95rem;
+				font-size: 0.98rem;
 				color: var(--text-muted);
 			}
 
 			/* Footer / Links */
 			footer {
 				margin-top: 50px;
+				padding-top: 25px;
+				border-top: 1px solid var(--border-color);
 				font-size: 0.95rem;
-				color: var(--text-muted);
 			}
 
 			footer a {
-				color: var(--text-main);
+				color: var(--accent-color);
 				text-decoration: none;
-				margin-right: 15px;
-				font-weight: 500;
+				margin-right: 20px;
+				font-weight: 600;
 			}
 
 			footer a:hover {
@@ -147,8 +153,6 @@
 						<a href="my-first-essay.html" class="article-title">I Forgot How to Spell 'Souvenirs' and It Broke Something in Me</a>
 						<p class="article-summary">A small moment that made me realize how much I've outsourced to autocorrect, and what I'm doing to take it back.</p>
 					</li>
-					
-					<!-- Add future essays here by copying this <li> block -->
 				</ul>
 			</main>
 
