@@ -5,11 +5,21 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<style>
+			/* Color Palette Settings */
+			:root {
+				--bg-color: #f4f6f8;         /* Page background color */
+				--card-bg: #ffffff;          /* Card background color */
+				--primary-color: #2b6cb0;    /* Heading & link color */
+				--text-color: #2d3748;       /* Main text color */
+				--muted-text: #718096;      /* Subtitle & small text color */
+				--accent-color: #319795;     /* Accent / highlight color */
+			}
+
 			body {
 				font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 				line-height: 1.6;
-				color: #222222;
-				background-color: #fafafa;
+				color: var(--text-color);
+				background-color: var(--bg-color);
 				margin: 0;
 				padding: 0;
 			}
@@ -20,58 +30,88 @@
 			}
 			header {
 				text-align: center;
-				margin-bottom: 50px;
+				margin-bottom: 40px;
 			}
 			h1 {
 				font-size: 2.2rem;
 				font-weight: 700;
 				margin-bottom: 10px;
-				color: #111111;
+				color: var(--primary-color);
 			}
 			.subtitle {
 				font-size: 1.1rem;
-				color: #666666;
+				color: var(--muted-text);
 				margin-top: 0;
 			}
+
+			/* Banner Image Styling */
+			.profile-image {
+				width: 100%;
+				max-height: 350px;
+				object-fit: cover;
+				border-radius: 12px;
+				margin-bottom: 30px;
+			}
+
 			.intro-text {
 				font-size: 1.15rem;
-				margin-bottom: 50px;
+				margin-bottom: 40px;
 			}
 			.section-title {
 				font-size: 1.5rem;
-				border-bottom: 2px solid #eeeeee;
+				border-bottom: 2px solid var(--accent-color);
 				padding-bottom: 8px;
 				margin-top: 40px;
 				margin-bottom: 25px;
+				color: var(--primary-color);
 			}
+
+			/* Article Card Styling with Images */
 			.article-list {
 				list-style: none;
 				padding: 0;
 				margin: 0 0 50px 0;
 			}
 			.article-item {
-				margin-bottom: 25px;
+				background-color: var(--card-bg);
+				border-radius: 8px;
+				padding: 20px;
+				margin-bottom: 20px;
+				box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+				display: flex;
+				gap: 20px;
+				align-items: center;
 			}
-			.article-item a {
+			.article-thumb {
+				width: 100px;
+				height: 100px;
+				object-fit: cover;
+				border-radius: 6px;
+				flex-shrink: 0;
+			}
+			.article-content a {
 				font-size: 1.2rem;
 				font-weight: 600;
-				color: #0066cc;
+				color: var(--primary-color);
 				text-decoration: none;
 			}
-			.article-item a:hover {
+			.article-content a:hover {
+				color: var(--accent-color);
 				text-decoration: underline;
 			}
-			.article-item p {
+			.article-content p {
 				margin: 5px 0 0 0;
-				color: #555555;
+				color: var(--muted-text);
 			}
+
 			.cta-box {
-				background-color: #ffffff;
-				border: 1px solid #e0e0e0;
+				background-color: var(--card-bg);
+				border-left: 4px solid var(--accent-color);
 				border-radius: 8px;
 				padding: 30px;
 				text-align: center;
 				margin-top: 50px;
+				box-shadow: 0 4px 6px rgba(0,0,0,0.05);
 			}
 			.cta-box p {
 				font-size: 1.1rem;
@@ -79,21 +119,33 @@
 			}
 			.mail-btn {
 				display: inline-block;
-				background-color: #111111;
+				background-color: var(--primary-color);
 				color: #ffffff;
 				padding: 12px 24px;
-				border-radius: 5px;
+				border-radius: 6px;
 				text-decoration: none;
 				font-weight: 600;
 			}
 			.mail-btn:hover {
-				background-color: #333333;
+				background-color: var(--accent-color);
 			}
 			footer {
 				text-align: center;
 				font-size: 0.9rem;
-				color: #888888;
+				color: var(--muted-text);
 				margin-top: 60px;
+			}
+
+			/* Stack image and text vertically on mobile screens */
+			@media (max-width: 550px) {
+				.article-item {
+					flex-direction: column;
+					align-items: flex-start;
+				}
+				.article-thumb {
+					width: 100%;
+					height: 160px;
+				}
 			}
 		</style>
 	</head>
@@ -107,28 +159,37 @@
 				<p class="subtitle">A simple space for ideas, questions, and stories.</p>
 			</header>
 
+			<!-- Optional Main Top Image -->
+			<img src="images/pic10.jpg" alt="Header Image" class="profile-image" />
+
 			<!-- Human Bio Paragraph -->
 			<div class="intro-text">
 				<p>Hello! My name is Priya Tiwari. I read and write for a living. I built this space to share my work and explore questions that keep me thinking. Whenever something catches my curiosity, I research it, write about it, and share it here.</p>
 			</div>
 
-			<!-- Articles Section -->
+			<!-- Articles Section with Images -->
 			<h2 class="section-title">Articles & Thoughts</h2>
 			<ul class="article-list">
 				<li class="article-item">
-					<a href="#">First Essay Title Goes Here</a>
-					<p>A quick one-line summary of what this piece is about.</p>
+					<img src="images/pic01.jpg" alt="Article 1 image" class="article-thumb" />
+					<div class="article-content">
+						<a href="#">First Essay Title Goes Here</a>
+						<p>A quick one-line summary of what this piece is about.</p>
+					</div>
 				</li>
 				<li class="article-item">
-					<a href="#">Second Essay Title Goes Here</a>
-					<p>A quick one-line summary of what this piece is about.</p>
+					<img src="images/pic02.jpg" alt="Article 2 image" class="article-thumb" />
+					<div class="article-content">
+						<a href="#">Second Essay Title Goes Here</a>
+						<p>A quick one-line summary of what this piece is about.</p>
+					</div>
 				</li>
 			</ul>
 
 			<!-- Closing & Contact Box -->
 			<div class="cta-box">
 				<p>If you enjoy reading these pieces, come along for the ride. Let's learn and explore together. Looking for a writer for your next project? Drop me a line!</p>
-				<a class="mail-btn" href="mailto:priya.tiwari167@outlook.com">Mail Me</a>
+				<a class="mail-btn" href="mailto:tiwaripriya194@gmail.com">Mail Me</a>
 			</div>
 
 			<footer>
