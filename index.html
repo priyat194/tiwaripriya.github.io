@@ -128,7 +128,7 @@
 				line-height: 1.7;
 			}
 
-			/* Card Grid */
+			/* Card & Grid Styling */
 			.card-grid {
 				display: flex;
 				flex-direction: column;
@@ -176,7 +176,20 @@
 				font-weight: 500;
 			}
 
-			/* Writing Links */
+			/* Placeholder Card for Writing */
+			.placeholder-card {
+				background-color: var(--highlight-bg);
+				border: 1px dashed var(--border-color);
+				border-radius: 10px;
+				padding: 30px 24px;
+				text-align: center;
+			}
+
+			.placeholder-card p {
+				color: var(--text-muted);
+				font-size: 0.98rem;
+			}
+
 			.article-link {
 				text-decoration: none;
 				color: inherit;
@@ -238,20 +251,31 @@
 				</div>
 			</section>
 
-			<!-- Writing Section -->
+			<!-- Writing Section (Prepared for future publications) -->
 			<section id="writing">
 				<p class="section-title">Selected Writing</p>
+				
 				<div class="card-grid">
-					<a href="my-first-essay.html" class="article-link">
-						<div class="card">
-							<h3 class="card-title">I Forgot How to Spell 'Souvenirs' and It Broke Something in Me</h3>
-							<p class="card-desc">A small moment that made me realize how much I've outsourced to autocorrect, and what I'm doing to take it back.</p>
-							<div class="card-tags">
-								<span class="tag">Essay</span>
-								<span class="tag">Digital Minimalism</span>
+					<!-- Active Placeholder Message -->
+					<div class="placeholder-card">
+						<p> Essays & articles coming soon. Stay tuned!</p>
+					</div>
+
+					<!-- 
+						HOW TO ADD ARTICLES LATER:
+						Uncomment and edit the block below when you publish a new essay.
+
+						<a href="my-first-essay.html" class="article-link">
+							<div class="card">
+								<h3 class="card-title">Article Title Goes Here</h3>
+								<p class="card-desc">Short one-sentence summary of the article.</p>
+								<div class="card-tags">
+									<span class="tag">Topic</span>
+									<span class="tag">Essay</span>
+								</div>
 							</div>
-						</div>
-					</a>
+						</a>
+					-->
 				</div>
 			</section>
 
@@ -260,7 +284,9 @@
 				<p class="section-title">Get In Touch</p>
 				<p class="card-desc">Open for writing projects, collaborations, or just a chat.</p>
 				<div class="contact-links">
-					<a href="priya.tiwari167@outlook.com">Email</a>
+					<a href="mailto:your-email@example.com">Email</a>
+					<a href="https://twitter.com" target="_blank">Twitter / X</a>
+					<a href="https://github.com" target="_blank">GitHub</a>
 				</div>
 			</footer>
 
