@@ -147,13 +147,15 @@ box.addEventListener('click',ev=>{if(ev.target===box)box.close()});
 
 const pet=document.getElementById('pet'),say=document.getElementById('say');
 const lines=["Mmm, delicious.","More words, please.","Crunchy!","Tastes like a first draft."];
+let uneaten=document.querySelectorAll('.drag').length;
 function check(el){
-  if(!el.classList.contains('treat'))return;
   const a=el.getBoundingClientRect(),b=pet.getBoundingClientRect();
   if(a.right>b.left&&a.left<b.right&&a.bottom>b.top&&a.top<b.bottom){
-    say.textContent=lines[Math.floor(Math.random()*lines.length)];
-    pet.classList.add('chomp');el.style.display='none';
-    setTimeout(()=>{pet.classList.remove('chomp');el.style.left=el.dataset.x;el.style.top=el.dataset.y;el.style.display=''},900);
+    uneaten--;
+    say.textContent=uneaten?lines[Math.floor(Math.random()*lines.length)]:"I'm full! Refresh to feed me again.";
+    pet.classList.add('chomp');
+    el.style.display='none';
+    setTimeout(()=>pet.classList.remove('chomp'),900);
   }
 }
 document.querySelectorAll('.drag').forEach(el=>{
