@@ -48,7 +48,7 @@ dialog h2{font-size:2.2rem;margin-bottom:.5rem}
 @media(max-width:800px){nav{inset:0 0 auto 0;width:auto;flex-direction:row;flex-wrap:wrap;align-items:center;padding:.8rem 1rem;border-right:0;border-bottom:2px solid var(--ink)}nav .me{margin:0 1rem 0 0}main{margin:0;padding-top:4.5rem}section{padding:3rem 1.25rem}#pet{right:2%}}
 .mail{display:inline-block;margin-top:1rem;padding:.9rem 1.8rem;background:var(--pink);color:var(--ink);font:800 1.2rem "Bricolage Grotesque",sans-serif;text-decoration:none;border:2px solid var(--ink);border-radius:18px;box-shadow:5px 5px 0 var(--ink);transition:transform .15s,box-shadow .15s}
 .mail:hover,.mail:focus-visible{transform:translate(-2px,-2px);box-shadow:8px 8px 0 var(--sun)}
-</style>
+a.card{display:block;text-decoration:none}</style>
 </head>
 <body>
 
@@ -110,27 +110,21 @@ dialog h2{font-size:2.2rem;margin-bottom:.5rem}
    and change the words. Leave image as "" if there is no picture. */
 const essays=[
   {
-    title:"My first essay",
-    summary:"One line about what this essay is about.",
-    image:"IMG_0139_Original.JPG",
-    body:`<p>Paste your first essay here.</p>
-<p>Each paragraph goes between its own p tags.</p>`
-  },
-  {
-    title:"My second essay",
-    summary:"Another short teaser.",
-    image:"",
-    body:`<p>Your text here.</p>`
+    title:"I Forgot How to Spell 'Souvenirs' and It Broke Something in Me",
+    summary:"A small moment that made me realize how much I've outsourced to autocorrect, and what I'm doing to take it back.",
+    image:"images/pic01.jpg",
+    link:"my-first-essay.html"
   }
 ];
 /* ===== END OF THINGS TO EDIT ===== */
 
 const grid=document.getElementById('grid'),box=document.getElementById('box'),read=document.getElementById('read');
 essays.forEach(e=>{
-  const b=document.createElement('button');
+  const b=document.createElement(e.link?'a':'button');
   b.className='card';
+  if(e.link)b.href=e.link;
   b.innerHTML=(e.image?`<img src="${e.image}" alt="">`:'')+`<h3>${e.title}</h3><p>${e.summary}</p>`;
-  b.onclick=()=>{read.innerHTML=`<h2>${e.title}</h2>`+(e.image?`<img src="${e.image}" alt="">`:'')+e.body;box.showModal()};
+  if(!e.link)b.onclick=()=>{read.innerHTML=`<h2>${e.title}</h2>`+(e.image?`<img src="${e.image}" alt="">`:'')+e.body;box.showModal()};
   grid.append(b);
 });
 document.getElementById('close').onclick=()=>box.close();
