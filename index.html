@@ -48,6 +48,13 @@ dialog h2{font-size:2.2rem;margin-bottom:.5rem}
 @media(max-width:800px){nav{inset:0 0 auto 0;width:auto;flex-direction:row;flex-wrap:wrap;align-items:center;padding:.8rem 1rem;border-right:0;border-bottom:2px solid var(--ink)}nav .me{margin:0 1rem 0 0}main{margin:0;padding-top:4.5rem}section{padding:3rem 1.25rem}#pet{right:2%}}
 .mail{display:inline-block;margin-top:1rem;padding:.9rem 1.8rem;background:var(--pink);color:var(--ink);font:800 1.2rem "Bricolage Grotesque",sans-serif;text-decoration:none;border:2px solid var(--ink);border-radius:18px;box-shadow:5px 5px 0 var(--ink);transition:transform .15s,box-shadow .15s}
 .mail:hover,.mail:focus-visible{transform:translate(-2px,-2px);box-shadow:8px 8px 0 var(--sun)}
+.play{position:absolute;inset:0;pointer-events:none}
+.play>*{pointer-events:auto}
+@media(max-width:800px){
+.hero{min-height:0}
+.play{position:relative;inset:auto;height:26rem;margin-top:2rem}
+#pet{right:2%;bottom:2%}
+}
 </style>
 </head>
 <body>
@@ -64,23 +71,25 @@ dialog h2{font-size:2.2rem;margin-bottom:.5rem}
     <h1>I turn messy thoughts into words worth reading.</h1>
     <p>Hi, I'm Priya Tiwari, a content writer. Drag the stickers around, and feed the blob a word.</p>
 
-    <span class="drag sticker" style="left:52%;top:14%">coffee-powered</span>
-    <span class="drag sticker b" style="left:62%;top:34%">draft 7</span>
-    <span class="drag sticker c" style="left:44%;top:56%">hello!</span>
+    <div class="play">
+      <span class="drag sticker" style="left:52%;top:14%">coffee-powered</span>
+      <span class="drag sticker b" style="left:62%;top:34%">draft 7</span>
+      <span class="drag sticker c" style="left:44%;top:56%">hello!</span>
 
-    <span class="drag treat" style="left:8%;top:68%">serendipity</span>
-    <span class="drag treat" style="left:26%;top:78%">ampersand</span>
-    <span class="drag treat" style="left:42%;top:86%">wander</span>
+      <span class="drag treat" style="left:8%;top:68%">serendipity</span>
+      <span class="drag treat" style="left:26%;top:78%">ampersand</span>
+      <span class="drag treat" style="left:42%;top:86%">wander</span>
 
-    <div id="pet">
-      <svg viewBox="0 0 120 120" role="img" aria-label="A friendly green blob">
-        <path d="M20 70c0-30 20-50 42-50s40 18 40 46c0 24-16 38-40 38S20 94 20 70z" fill="#7BE0B5" stroke="#16163A" stroke-width="3"/>
-        <circle cx="48" cy="62" r="6" fill="#16163A"/><circle cx="76" cy="62" r="6" fill="#16163A"/>
-        <path d="M52 82q10 9 20 0" fill="none" stroke="#16163A" stroke-width="3" stroke-linecap="round"/>
-      </svg>
-      <p id="say">Feed me a word.</p>
+      <div id="pet">
+        <svg viewBox="0 0 120 120" role="img" aria-label="A friendly green blob">
+          <path d="M20 70c0-30 20-50 42-50s40 18 40 46c0 24-16 38-40 38S20 94 20 70z" fill="#7BE0B5" stroke="#16163A" stroke-width="3"/>
+          <circle cx="48" cy="62" r="6" fill="#16163A"/><circle cx="76" cy="62" r="6" fill="#16163A"/>
+          <path d="M52 82q10 9 20 0" fill="none" stroke="#16163A" stroke-width="3" stroke-linecap="round"/>
+        </svg>
+        <p id="say">Feed me a word.</p>
+      </div>
     </div>
-  </section>
+</section>
 
   <section id="writing">
     <h2 class="big">Writing</h2>
