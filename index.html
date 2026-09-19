@@ -48,7 +48,26 @@ dialog h2{font-size:2.2rem;margin-bottom:.5rem}
 @media(max-width:800px){nav{inset:0 0 auto 0;width:auto;flex-direction:row;flex-wrap:wrap;align-items:center;padding:.8rem 1rem;border-right:0;border-bottom:2px solid var(--ink)}nav .me{margin:0 1rem 0 0}main{margin:0;padding-top:4.5rem}section{padding:3rem 1.25rem}#pet{right:2%}}
 .mail{display:inline-block;margin-top:1rem;padding:.9rem 1.8rem;background:var(--pink);color:var(--ink);font:800 1.2rem "Bricolage Grotesque",sans-serif;text-decoration:none;border:2px solid var(--ink);border-radius:18px;box-shadow:5px 5px 0 var(--ink);transition:transform .15s,box-shadow .15s}
 .mail:hover,.mail:focus-visible{transform:translate(-2px,-2px);box-shadow:8px 8px 0 var(--sun)}
-a.card{display:block;text-decoration:none}</style>
+a.card{display:block;text-decoration:none}
+  .hero{min-height:0;padding-bottom:2rem}
+.hero h1.typing::after{content:"";display:inline-block;width:.07em;height:.85em;margin-left:.06em;background:var(--pink);vertical-align:-.05em;animation:blink 1s steps(2) infinite}
+@keyframes blink{to{opacity:0}}
+.hero .line{display:block;height:6px;width:0;background:var(--pink);border-radius:9px;margin-top:1.2rem;transition:width .8s ease}
+.hero .line.on{width:7rem}
+.rise{opacity:0}
+.rise.in{opacity:1;animation:rise .6s ease backwards}
+@keyframes rise{from{opacity:0;transform:translateY(16px)}}
+a.card{display:block;text-decoration:none}
+.btns{display:flex;flex-wrap:wrap;gap:1rem}
+.mail{color:#16163A}
+.mail.in{background:var(--mint)}
+.tg{margin-top:auto;font:inherit;background:var(--sun);color:#16163A;border:2px solid var(--ink);border-radius:99px;padding:.3rem .9rem;cursor:pointer;width:max-content}
+@media(max-width:800px){.tg{margin:0 0 0 auto}}
+[data-theme=dark]{--bg:#12122B;--ink:#EDEEFF;--pink:#FF7AA2}
+[data-theme=dark] .card,[data-theme=dark] dialog{background:#1E1E45}
+[data-theme=dark] .card p{color:#B9BAE0}
+[data-theme=dark] nav a:not(.me):hover{color:#16163A}
+</style>
 </head>
 <body>
 
@@ -57,29 +76,14 @@ a.card{display:block;text-decoration:none}</style>
   <a href="#writing">Writing</a>
   <a href="#about">About</a>
   <a href="#contact">Contact</a>
+    <button class="tg" id="theme">Dark mode</button>
 </nav>
 
 <main>
  <section class="hero" id="top">
-    <h1>I turn messy thoughts into words worth reading.</h1>
-    <p>Hi, I'm Priya Tiwari, a content writer. Drag the stickers around, and feed the blob a word.</p>
-
-    <span class="drag sticker" style="left:52%;top:14%">coffee-powered</span>
-    <span class="drag sticker b" style="left:62%;top:34%">draft 7</span>
-    <span class="drag sticker c" style="left:44%;top:56%">hello!</span>
-
-    <span class="drag treat" style="left:8%;top:68%">serendipity</span>
-    <span class="drag treat" style="left:26%;top:78%">ampersand</span>
-    <span class="drag treat" style="left:42%;top:86%">wander</span>
-
-    <div id="pet">
-      <svg viewBox="0 0 120 120" role="img" aria-label="A friendly green blob">
-        <path d="M20 70c0-30 20-50 42-50s40 18 40 46c0 24-16 38-40 38S20 94 20 70z" fill="#7BE0B5" stroke="#16163A" stroke-width="3"/>
-        <circle cx="48" cy="62" r="6" fill="#16163A"/><circle cx="76" cy="62" r="6" fill="#16163A"/>
-        <path d="M52 82q10 9 20 0" fill="none" stroke="#16163A" stroke-width="3" stroke-linecap="round"/>
-      </svg>
-      <p id="say">Feed me a word.</p>
-    </div>
+    <h1 id="type">I turn messy thoughts into words worth reading.</h1>
+    <span class="line" id="line"></span>
+    <p>Hi, I'm Priya Tiwari, a content writer.</p>
 </section>
 
   <section id="writing">
@@ -95,7 +99,10 @@ a.card{display:block;text-decoration:none}</style>
 
   <section id="contact">
     <h2 class="big">Say hello</h2>
+    <div class="btns">
     <a class="mail" href="mailto:priya.tiwari167@outlook.com?subject=Hello%20Priya">Mail me</a>
+          <a class="mail in" href="https://www.linkedin.com/in/priya-t-655911274" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
     <p>Or write to me at priya.tiwari167@outlook.com</p>
 </section>
 
@@ -130,24 +137,38 @@ essays.forEach(e=>{
 document.getElementById('close').onclick=()=>box.close();
 box.addEventListener('click',ev=>{if(ev.target===box)box.close()});
 
-const pet=document.getElementById('pet'),say=document.getElementById('say');
-const lines=["Mmm, delicious.","More words, please.","Crunchy!","Tastes like a first draft."];
-function check(el){
-  if(!el.classList.contains('treat'))return;
-  const a=el.getBoundingClientRect(),b=pet.getBoundingClientRect();
-  if(a.right>b.left&&a.left<b.right&&a.bottom>b.top&&a.top<b.bottom){
-    say.textContent=lines[Math.floor(Math.random()*lines.length)];
-    pet.classList.add('chomp');el.style.display='none';
-    setTimeout(()=>{pet.classList.remove('chomp');el.style.left=el.dataset.x;el.style.top=el.dataset.y;el.style.display=''},900);
-  }
+const h=document.getElementById('type'),line=document.getElementById('line'),full=h.textContent.trim();
+h.setAttribute('aria-label',full);
+if(matchMedia('(prefers-reduced-motion:reduce)').matches){
+  line.classList.add('on');
+}else{
+  (document.fonts?document.fonts.ready:Promise.resolve()).then(()=>{
+    h.style.minHeight=h.offsetHeight+'px';
+    h.textContent='';h.classList.add('typing');
+    let i=0;
+    (function go(){
+      h.textContent=full.slice(0,++i);
+      if(i<full.length)setTimeout(go,45);
+      else{h.classList.remove('typing');line.classList.add('on')}
+    })();
+  });
 }
-document.querySelectorAll('.drag').forEach(el=>{
-  let sx,sy,ox,oy;
-  el.dataset.x=el.style.left;el.dataset.y=el.style.top;
-  el.onpointerdown=e=>{el.setPointerCapture(e.pointerId);sx=e.clientX;sy=e.clientY;ox=el.offsetLeft;oy=el.offsetTop;el.classList.add('held')};
-  el.onpointermove=e=>{if(!el.hasPointerCapture(e.pointerId))return;el.style.left=ox+e.clientX-sx+'px';el.style.top=oy+e.clientY-sy+'px'};
-  el.onpointerup=()=>{el.classList.remove('held');check(el)};
-});
-</script>
+
+if('IntersectionObserver' in window){
+  const io=new IntersectionObserver(es=>es.forEach(e=>{
+    if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}
+  }),{threshold:.15});
+  document.querySelectorAll('.card,#about p,.btns').forEach(el=>{el.classList.add('rise');io.observe(el)});
+}
+
+const root=document.documentElement,tg=document.getElementById('theme');
+function setTheme(t){
+  root.dataset.theme=t;
+  tg.textContent=t==='dark'?'Light mode':'Dark mode';
+  try{localStorage.setItem('theme',t)}catch(e){}
+}
+let saved;try{saved=localStorage.getItem('theme')}catch(e){}
+setTheme(saved||(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light'));
+tg.onclick=()=>setTheme(root.dataset.theme==='dark'?'light':'dark');
 </body>
 </html>
