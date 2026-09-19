@@ -46,6 +46,8 @@ dialog img{max-width:100%;border-radius:10px;margin:1rem 0}
 dialog h2{font-size:2.2rem;margin-bottom:.5rem}
 .x{float:right;font:inherit;background:var(--sun);border:2px solid var(--ink);border-radius:99px;padding:.2rem .9rem;cursor:pointer}
 @media(max-width:800px){nav{inset:0 0 auto 0;width:auto;flex-direction:row;flex-wrap:wrap;align-items:center;padding:.8rem 1rem;border-right:0;border-bottom:2px solid var(--ink)}nav .me{margin:0 1rem 0 0}main{margin:0;padding-top:4.5rem}section{padding:3rem 1.25rem}#pet{right:2%}}
+.mail{display:inline-block;margin-top:1rem;padding:.9rem 1.8rem;background:var(--pink);color:var(--ink);font:800 1.2rem "Bricolage Grotesque",sans-serif;text-decoration:none;border:2px solid var(--ink);border-radius:18px;box-shadow:5px 5px 0 var(--ink);transition:transform .15s,box-shadow .15s}
+.mail:hover,.mail:focus-visible{transform:translate(-2px,-2px);box-shadow:8px 8px 0 var(--sun)}
 </style>
 </head>
 <body>
@@ -88,15 +90,14 @@ dialog h2{font-size:2.2rem;margin-bottom:.5rem}
   <section id="about">
     <h2 class="big">About</h2>
     <!-- EDIT: write about yourself -->
-    <p>Write a few sentences here: who you are, what you write about, and who you write for.</p>
+    <p>Hello, everyone! I'm Priya Tiwari. I write for a living, and sometimes I write just because. I'm a work in progress, so what you read here might make you cry, nod along, or laugh out loud. Whatever it does, I hope it makes you forget your phone for a minute or two and lets you enjoy the words. If it does, tell me. Writers are bad at pretending we don't want to know.</p>.
   </section>
 
   <section id="contact">
     <h2 class="big">Say hello</h2>
-    <!-- EDIT: your email (2 places) -->
-    <p><a href="mailto:priya.tiwari167@outlook.com">Mail</a></p>
-  </section>
-</main>
+    <a class="mail" href="mailto:priya.tiwari167@outlook.com?subject=Hello%20Priya">Mail me</a>
+    <p>Or write to me at priya.tiwari167@outlook.com</p>
+</section>
 
 <dialog id="box">
   <button class="x" id="close">Close</button>
