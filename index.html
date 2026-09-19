@@ -1,184 +1,158 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html lang="en">
-	<head>
-		<title>Priya Tiwari</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<style>
-			:root {
-				--bg-color: #f4f6f0;        /* Soft sage cream background */
-				--card-bg: #ffffff;          /* Pure white card background */
-				--text-main: #222b28;        /* Deep charcoal-green text */
-				--text-muted: #5a6660;       /* Soft olive-gray text */
-				--accent-color: #2d5a43;     /* Forest green primary accent */
-				--border-color: #e2e7e1;     /* Soft greenish-gray borders */
-			}
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>YOUR NAME | Writer</title>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;800&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#EEF3FF;--ink:#16163A;--pink:#FF5C8A;--sun:#FFD23F;--mint:#7BE0B5}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+body{margin:0;background:var(--bg);color:var(--ink);font:1.1rem/1.65 "DM Sans",system-ui,sans-serif}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--pink);outline-offset:3px}
+nav{position:fixed;inset:0 auto 0 0;width:220px;padding:2rem 1.5rem;display:flex;flex-direction:column;gap:.4rem;border-right:2px solid var(--ink);background:var(--bg);z-index:5}
+nav .me{font:800 1.4rem "Bricolage Grotesque",sans-serif;text-decoration:none;margin-bottom:1.5rem}
+nav a:not(.me){text-decoration:none;padding:.35rem .7rem;border-radius:99px;width:max-content}
+nav a:not(.me):hover{background:var(--sun)}
+main{margin-left:220px}
+section{padding:5rem 3rem;max-width:64rem}
+h1,h2,h3{font-family:"Bricolage Grotesque",sans-serif;line-height:1.05;margin:0}
+.big{font-size:clamp(1.8rem,5vw,3.2rem);font-weight:800}
+.hero{position:relative;min-height:100vh;max-width:none;overflow:hidden}
+.hero h1{font-size:clamp(2.6rem,7vw,6rem);font-weight:800;letter-spacing:-.03em;max-width:13ch}
+.hero p{max-width:34ch;margin-top:1.5rem}
+.drag{position:absolute;cursor:grab;touch-action:none;user-select:none;z-index:2}
+.drag.held{cursor:grabbing;z-index:4;filter:drop-shadow(4px 6px 0 rgba(22,22,58,.25))}
+.sticker{padding:.5rem 1rem;border:2px solid var(--ink);border-radius:99px;font-weight:500;background:var(--sun);transform:rotate(-6deg)}
+.sticker.b{background:var(--pink);transform:rotate(5deg)}
+.sticker.c{background:var(--mint);transform:rotate(-2deg)}
+.treat{padding:.3rem .9rem;background:#fff;border:2px dashed var(--ink);border-radius:8px}
+#pet{position:absolute;right:6%;bottom:8%;text-align:center;width:150px}
+#pet svg{width:130px;transition:transform .2s}
+#pet.chomp svg{transform:scale(1.2,.8)}
+#say{margin:.3rem 0 0;font-size:.95rem;min-height:1.6em}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(16rem,1fr));gap:1.5rem;margin-top:2rem}
+.card{font:inherit;color:inherit;text-align:left;background:#fff;border:2px solid var(--ink);border-radius:18px;padding:1.2rem;cursor:pointer;box-shadow:5px 5px 0 var(--ink);transition:transform .15s,box-shadow .15s}
+.card:hover,.card:focus-visible{transform:translate(-2px,-2px);box-shadow:8px 8px 0 var(--pink)}
+.card img{width:100%;height:10rem;object-fit:cover;border-radius:10px;margin-bottom:.8rem}
+.card h3{font-size:1.5rem;margin-bottom:.4rem}
+.card p{margin:0;color:#4b4b70}
+dialog{max-width:42rem;width:calc(100% - 2rem);max-height:88vh;border:2px solid var(--ink);border-radius:18px;padding:2rem;background:#fff;color:var(--ink)}
+dialog::backdrop{background:rgba(22,22,58,.55)}
+dialog img{max-width:100%;border-radius:10px;margin:1rem 0}
+dialog h2{font-size:2.2rem;margin-bottom:.5rem}
+.x{float:right;font:inherit;background:var(--sun);border:2px solid var(--ink);border-radius:99px;padding:.2rem .9rem;cursor:pointer}
+@media(max-width:800px){nav{inset:0 0 auto 0;width:auto;flex-direction:row;flex-wrap:wrap;align-items:center;padding:.8rem 1rem;border-right:0;border-bottom:2px solid var(--ink)}nav .me{margin:0 1rem 0 0}main{margin:0;padding-top:4.5rem}section{padding:3rem 1.25rem}#pet{right:2%}}
+</style>
+</head>
+<body>
 
-			* {
-				box-sizing: border-box;
-				margin: 0;
-				padding: 0;
-			}
+<nav>
+  <a class="me" href="#top">YOUR NAME</a>
+  <a href="#writing">Writing</a>
+  <a href="#about">About</a>
+  <a href="#contact">Contact</a>
+</nav>
 
-			body {
-				font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-				background-color: var(--bg-color);
-				color: var(--text-main);
-				line-height: 1.6;
-				padding: 50px 20px;
-				-webkit-font-smoothing: antialiased;
-			}
+<main>
+  <section class="hero" id="top">
+    <h1>I turn messy thoughts into words worth reading.</h1>
+    <p>Hi, I'm YOUR NAME, a content writer. Drag the stickers around, and feed the blob a word.</p>
 
-			.container {
-				max-width: 640px;
-				margin: 0 auto;
-			}
+    <span class="drag sticker" style="left:52%;top:14%">coffee-powered</span>
+    <span class="drag sticker b" style="left:62%;top:34%">draft 7</span>
+    <span class="drag sticker c" style="left:44%;top:56%">hello!</span>
 
-			/* Banner Image */
-			.profile-image {
-				width: 100%;
-				height: 280px;
-				object-fit: cover;
-				object-position: top;
-				border-radius: 12px;
-				margin-bottom: 35px;
-				box-shadow: 0 4px 12px rgba(45, 90, 67, 0.08);
-			}
+    <span class="drag treat" style="left:8%;top:68%">serendipity</span>
+    <span class="drag treat" style="left:26%;top:78%">ampersand</span>
+    <span class="drag treat" style="left:42%;top:86%">wander</span>
 
-			/* Header & Bio */
-			header {
-				margin-bottom: 30px;
-			}
+    <div id="pet">
+      <svg viewBox="0 0 120 120" role="img" aria-label="A friendly green blob">
+        <path d="M20 70c0-30 20-50 42-50s40 18 40 46c0 24-16 38-40 38S20 94 20 70z" fill="#7BE0B5" stroke="#16163A" stroke-width="3"/>
+        <circle cx="48" cy="62" r="6" fill="#16163A"/><circle cx="76" cy="62" r="6" fill="#16163A"/>
+        <path d="M52 82q10 9 20 0" fill="none" stroke="#16163A" stroke-width="3" stroke-linecap="round"/>
+      </svg>
+      <p id="say">Feed me a word.</p>
+    </div>
+  </section>
 
-			h1 {
-				font-size: 1.8rem;
-				font-weight: 600;
-				letter-spacing: -0.02em;
-				margin-bottom: 8px;
-				color: var(--accent-color);
-			}
+  <section id="writing">
+    <h2 class="big">Writing</h2>
+    <div class="grid" id="grid"></div>
+  </section>
 
-			.subtitle {
-				font-size: 1.15rem;
-				color: var(--text-muted);
-				font-weight: 500;
-				margin-bottom: 20px;
-			}
+  <section id="about">
+    <h2 class="big">About</h2>
+    <!-- EDIT: write about yourself -->
+    <p>Write a few sentences here: who you are, what you write about, and who you write for.</p>
+  </section>
 
-			.intro-text p {
-				font-size: 1.05rem;
-				color: var(--text-main);
-				margin-bottom: 16px;
-				line-height: 1.7;
-			}
+  <section id="contact">
+    <h2 class="big">Say hello</h2>
+    <!-- EDIT: your email (2 places) -->
+    <p><a href="mailto:you@example.com">you@example.com</a></p>
+  </section>
+</main>
 
-			/* Section Title */
-			.section-label {
-				font-size: 0.85rem;
-				text-transform: uppercase;
-				letter-spacing: 0.08em;
-				color: var(--accent-color);
-				margin-top: 40px;
-				margin-bottom: 20px;
-				font-weight: 700;
-			}
+<dialog id="box">
+  <button class="x" id="close">Close</button>
+  <div id="read"></div>
+</dialog>
 
-			/* Writing List */
-			.article-list {
-				list-style: none;
-			}
+<script>
+/* ===== EDIT YOUR ESSAYS HERE =====
+   To add an essay: copy one whole { ... }, block, paste it below the last one,
+   and change the words. Leave image as "" if there is no picture. */
+const essays=[
+  {
+    title:"My first essay",
+    summary:"One line about what this essay is about.",
+    image:"IMG_0139_Original.JPG",
+    body:`<p>Paste your first essay here.</p>
+<p>Each paragraph goes between its own p tags.</p>`
+  },
+  {
+    title:"My second essay",
+    summary:"Another short teaser.",
+    image:"",
+    body:`<p>Your text here.</p>`
+  }
+];
+/* ===== END OF THINGS TO EDIT ===== */
 
-			.article-item {
-				background-color: var(--card-bg);
-				border: 1px solid var(--border-color);
-				border-radius: 10px;
-				padding: 24px;
-				margin-bottom: 16px;
-				transition: border-color 0.2s ease, transform 0.2s ease;
-			}
+const grid=document.getElementById('grid'),box=document.getElementById('box'),read=document.getElementById('read');
+essays.forEach(e=>{
+  const b=document.createElement('button');
+  b.className='card';
+  b.innerHTML=(e.image?`<img src="${e.image}" alt="">`:'')+`<h3>${e.title}</h3><p>${e.summary}</p>`;
+  b.onclick=()=>{read.innerHTML=`<h2>${e.title}</h2>`+(e.image?`<img src="${e.image}" alt="">`:'')+e.body;box.showModal()};
+  grid.append(b);
+});
+document.getElementById('close').onclick=()=>box.close();
+box.addEventListener('click',ev=>{if(ev.target===box)box.close()});
 
-			.article-item:hover {
-				border-color: var(--accent-color);
-				transform: translateY(-2px);
-			}
-
-			.article-title {
-				font-size: 1.15rem;
-				font-weight: 600;
-				color: var(--text-main);
-				text-decoration: none;
-				display: block;
-				margin-bottom: 6px;
-			}
-
-			.article-title:hover {
-				color: var(--accent-color);
-			}
-
-			.article-summary {
-				font-size: 0.98rem;
-				color: var(--text-muted);
-			}
-
-			/* Footer / Links */
-			footer {
-				margin-top: 50px;
-				padding-top: 25px;
-				border-top: 1px solid var(--border-color);
-				font-size: 0.95rem;
-			}
-
-			footer a {
-				color: var(--accent-color);
-				text-decoration: none;
-				margin-right: 20px;
-				font-weight: 600;
-			}
-
-			footer a:hover {
-				text-decoration: underline;
-			}
-		</style>
-	</head>
-	<body>
-
-		<div class="container">
-			
-			<!-- Header Banner Image -->
-			<img src="IMG_0139_Original.JPG" alt="Priya Tiwari" class="profile-image" />
-
-			<!-- Bio Section -->
-			<header>
-				<h1>Welcome to My Corner of the Web</h1>
-				<p class="subtitle">A simple space for ideas, questions, and stories.</p>
-			</header>
-
-			<!-- Human Bio Paragraph -->
-			<div class="intro-text">
-				<p>Hello! My name is Priya Tiwari. I read and write for a living. I built this space to share my work and explore questions that keep me thinking. Whenever something catches my curiosity, I research it, write about it, and share it here.</p>
-				<p>If you enjoy reading these pieces, come along for the ride. Let's learn and explore together. Looking for a writer for your next project? Drop me a line!</p>
-			</div>
-
-			<!-- Writing Section -->
-			<main>
-				<p class="section-label">Selected Writing</p>
-				
-				<ul class="article-list">
-					<li class="article-item">
-						<a href="my-first-essay.html" class="article-title">I Forgot How to Spell 'Souvenirs' and It Broke Something in Me</a>
-						<p class="article-summary">A small moment that made me realize how much I've outsourced to autocorrect, and what I'm doing to take it back.</p>
-					</li>
-				</ul>
-			</main>
-
-			<!-- Social Links -->
-			<footer>
-				<a href="https://twitter.com" target="_blank">Twitter</a>
-				<a href="https://github.com" target="_blank">GitHub</a>
-				<a href="mailto:your-email@example.com">Email</a>
-			</footer>
-
-		</div>
-
-	</body>
+const pet=document.getElementById('pet'),say=document.getElementById('say');
+const lines=["Mmm, delicious.","More words, please.","Crunchy!","Tastes like a first draft."];
+function check(el){
+  if(!el.classList.contains('treat'))return;
+  const a=el.getBoundingClientRect(),b=pet.getBoundingClientRect();
+  if(a.right>b.left&&a.left<b.right&&a.bottom>b.top&&a.top<b.bottom){
+    say.textContent=lines[Math.floor(Math.random()*lines.length)];
+    pet.classList.add('chomp');el.style.display='none';
+    setTimeout(()=>{pet.classList.remove('chomp');el.style.left=el.dataset.x;el.style.top=el.dataset.y;el.style.display=''},900);
+  }
+}
+document.querySelectorAll('.drag').forEach(el=>{
+  let sx,sy,ox,oy;
+  el.dataset.x=el.style.left;el.dataset.y=el.style.top;
+  el.onpointerdown=e=>{el.setPointerCapture(e.pointerId);sx=e.clientX;sy=e.clientY;ox=el.offsetLeft;oy=el.offsetTop;el.classList.add('held')};
+  el.onpointermove=e=>{if(!el.hasPointerCapture(e.pointerId))return;el.style.left=ox+e.clientX-sx+'px';el.style.top=oy+e.clientY-sy+'px'};
+  el.onpointerup=()=>{el.classList.remove('held');check(el)};
+});
+</script>
+</body>
 </html>
