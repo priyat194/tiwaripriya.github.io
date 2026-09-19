@@ -112,18 +112,14 @@ a.card{display:block;text-decoration:none}
 </dialog>
 
 <script>
-/* ===== EDIT YOUR ESSAYS HERE =====
-   To add an essay: copy one whole { ... }, block, paste it below the last one,
-   and change the words. Leave image as "" if there is no picture. */
 const essays=[
   {
     title:"I Forgot How to Spell 'Souvenirs' and It Broke Something in Me",
     summary:"A small moment that made me realize how much I've outsourced to autocorrect, and what I'm doing to take it back.",
-        image:"souvenirs.jpg",
+    image:"souvenirs.jpg",
     link:"my-first-essay.html"
   }
 ];
-/* ===== END OF THINGS TO EDIT ===== */
 
 const grid=document.getElementById('grid'),box=document.getElementById('box'),read=document.getElementById('read');
 essays.forEach(e=>{
@@ -137,21 +133,24 @@ essays.forEach(e=>{
 document.getElementById('close').onclick=()=>box.close();
 box.addEventListener('click',ev=>{if(ev.target===box)box.close()});
 
-const h=document.getElementById('type'),line=document.getElementById('line'),full=h.textContent.trim();
-h.setAttribute('aria-label',full);
-if(matchMedia('(prefers-reduced-motion:reduce)').matches){
-  line.classList.add('on');
-}else{
-  (document.fonts?document.fonts.ready:Promise.resolve()).then(()=>{
-    h.style.minHeight=h.offsetHeight+'px';
-    h.textContent='';h.classList.add('typing');
-    let i=0;
-    (function go(){
-      h.textContent=full.slice(0,++i);
-      if(i<full.length)setTimeout(go,45);
-      else{h.classList.remove('typing');line.classList.add('on')}
-    })();
-  });
+const h=document.getElementById('type'),line=document.getElementById('line');
+if(h&&line){
+  const full=h.textContent.trim();
+  h.setAttribute('aria-label',full);
+  if(matchMedia('(prefers-reduced-motion:reduce)').matches){
+    line.classList.add('on');
+  }else{
+    (document.fonts?document.fonts.ready:Promise.resolve()).then(()=>{
+      h.style.minHeight=h.offsetHeight+'px';
+      h.textContent='';h.classList.add('typing');
+      let i=0;
+      (function go(){
+        h.textContent=full.slice(0,++i);
+        if(i<full.length)setTimeout(go,45);
+        else{h.classList.remove('typing');line.classList.add('on')}
+      })();
+    });
+  }
 }
 
 if('IntersectionObserver' in window){
@@ -162,13 +161,16 @@ if('IntersectionObserver' in window){
 }
 
 const root=document.documentElement,tg=document.getElementById('theme');
-function setTheme(t){
-  root.dataset.theme=t;
-  tg.textContent=t==='dark'?'Light mode':'Dark mode';
-  try{localStorage.setItem('theme',t)}catch(e){}
+if(tg){
+  const setTheme=t=>{
+    root.dataset.theme=t;
+    tg.textContent=t==='dark'?'Light mode':'Dark mode';
+    try{localStorage.setItem('theme',t)}catch(e){}
+  };
+  let saved;try{saved=localStorage.getItem('theme')}catch(e){}
+  setTheme(saved||(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light'));
+  tg.onclick=()=>setTheme(root.dataset.theme==='dark'?'light':'dark');
 }
-let saved;try{saved=localStorage.getItem('theme')}catch(e){}
-setTheme(saved||(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light'));
-tg.onclick=()=>setTheme(root.dataset.theme==='dark'?'light':'dark');
+</script>
 </body>
 </html>
