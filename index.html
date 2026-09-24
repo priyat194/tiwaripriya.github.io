@@ -76,8 +76,7 @@ a.card{display:block;text-decoration:none}
   <a href="#writing">Writing</a>
   <a href="#about">About</a>
   <a href="Priya Tiwari - Resume.pdf" target="_blank">Resume</a>
-  <a href="#contact">Contact</a>
-    <button class="tg" id="theme">Dark mode</button>
+  <button id="contactBtn" type="button" style="background:none;border:none;font:inherit;cursor:pointer;padding:.35rem .7rem;border-radius:99px;color:inherit;">Contact</button>    <button class="tg" id="theme">Dark mode</button>
 </nav>
 
 <main>
@@ -129,6 +128,7 @@ essays.forEach(e=>{
   grid.append(b);
 });
 document.getElementById('close').onclick=()=>box.close();
+  document.getElementById('contactBtn').onclick=()=>box.showModal();
 box.addEventListener('click',ev=>{if(ev.target===box)box.close()});
 
 const h=document.getElementById('type'),line=document.getElementById('line');
