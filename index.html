@@ -24,16 +24,6 @@ h1,h2,h3{font-family:"Bricolage Grotesque",sans-serif;line-height:1.05;margin:0}
 .hero{position:relative;min-height:100vh;max-width:none;overflow:hidden}
 .hero h1{font-size:clamp(2.6rem,7vw,6rem);font-weight:800;letter-spacing:-.03em;max-width:13ch}
 .hero p{max-width:34ch;margin-top:1.5rem}
-.drag{position:absolute;cursor:grab;touch-action:none;user-select:none;z-index:2}
-.drag.held{cursor:grabbing;z-index:4;filter:drop-shadow(4px 6px 0 rgba(22,22,58,.25))}
-.sticker{padding:.5rem 1rem;border:2px solid var(--ink);border-radius:99px;font-weight:500;background:var(--sun);transform:rotate(-6deg)}
-.sticker.b{background:var(--pink);transform:rotate(5deg)}
-.sticker.c{background:var(--mint);transform:rotate(-2deg)}
-.treat{padding:.3rem .9rem;background:#fff;border:2px dashed var(--ink);border-radius:8px}
-#pet{position:absolute;right:6%;bottom:8%;text-align:center;width:150px}
-#pet svg{width:130px;transition:transform .2s}
-#pet.chomp svg{transform:scale(1.2,.8)}
-#say{margin:.3rem 0 0;font-size:.95rem;min-height:1.6em}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(16rem,1fr));gap:1.5rem;margin-top:2rem}
 .card{font:inherit;color:inherit;text-align:left;background:#fff;border:2px solid var(--ink);border-radius:18px;padding:1.2rem;cursor:pointer;box-shadow:5px 5px 0 var(--ink);transition:transform .15s,box-shadow .15s}
 .card:hover,.card:focus-visible{transform:translate(-2px,-2px);box-shadow:8px 8px 0 var(--pink)}
@@ -45,11 +35,11 @@ dialog::backdrop{background:rgba(22,22,58,.55)}
 dialog img{max-width:100%;border-radius:10px;margin:1rem 0}
 dialog h2{font-size:2.2rem;margin-bottom:.5rem}
 .x{float:right;font:inherit;background:var(--sun);border:2px solid var(--ink);border-radius:99px;padding:.2rem .9rem;cursor:pointer}
-@media(max-width:800px){nav{inset:0 0 auto 0;width:auto;flex-direction:row;flex-wrap:wrap;align-items:center;padding:.8rem 1rem;border-right:0;border-bottom:2px solid var(--ink)}nav .me{margin:0 1rem 0 0}main{margin:0;padding-top:4.5rem}section{padding:3rem 1.25rem}#pet{right:2%}}
+@media(max-width:800px){nav{inset:0 0 auto 0;width:auto;flex-direction:row;flex-wrap:wrap;align-items:center;padding:.8rem 1rem;border-right:0;border-bottom:2px solid var(--ink)}nav .me{margin:0 1rem 0 0}main{margin:0;padding-top:4.5rem}section{padding:3rem 1.25rem}}
 .mail{display:inline-block;margin-top:1rem;padding:.9rem 1.8rem;background:var(--pink);color:var(--ink);font:800 1.2rem "Bricolage Grotesque",sans-serif;text-decoration:none;border:2px solid var(--ink);border-radius:18px;box-shadow:5px 5px 0 var(--ink);transition:transform .15s,box-shadow .15s}
 .mail:hover,.mail:focus-visible{transform:translate(-2px,-2px);box-shadow:8px 8px 0 var(--sun)}
 a.card{display:block;text-decoration:none}
-  .hero{min-height:0;padding-bottom:2rem}
+.hero{min-height:0;padding-bottom:2rem}
 .hero h1.typing::after{content:"";display:inline-block;width:.07em;height:.85em;margin-left:.06em;background:var(--pink);vertical-align:-.05em;animation:blink 1s steps(2) infinite}
 @keyframes blink{to{opacity:0}}
 .hero .line{display:block;height:6px;width:0;background:var(--pink);border-radius:9px;margin-top:1.2rem;transition:width .8s ease}
@@ -57,10 +47,7 @@ a.card{display:block;text-decoration:none}
 .rise{opacity:0}
 .rise.in{opacity:1;animation:rise .6s ease backwards}
 @keyframes rise{from{opacity:0;transform:translateY(16px)}}
-a.card{display:block;text-decoration:none}
 .btns{display:flex;flex-wrap:wrap;gap:1rem}
-.mail{color:#16163A}
-.mail.in{background:var(--mint)}
 .tg{margin-top:auto;font:inherit;background:var(--sun);color:#16163A;border:2px solid var(--ink);border-radius:99px;padding:.3rem .9rem;cursor:pointer;width:max-content}
 @media(max-width:800px){.tg{margin:0 0 0 auto}}
 [data-theme=dark]{--bg:#12122B;--ink:#EDEEFF;--pink:#FF7AA2}
@@ -76,15 +63,16 @@ a.card{display:block;text-decoration:none}
   <a href="#writing">Writing</a>
   <a href="#about">About</a>
   <a href="Priya Tiwari - Resume.pdf" target="_blank">Resume</a>
-  <button id="contactBtn" type="button" style="background:none;border:none;font:inherit;cursor:pointer;padding:.35rem .7rem;border-radius:99px;color:inherit;">Contact</button>    <button class="tg" id="theme">Dark mode</button>
+  <a href="#contact">Contact</a>
+  <button class="tg" id="theme">Dark mode</button>
 </nav>
 
 <main>
- <section class="hero" id="top">
+  <section class="hero" id="top">
     <h1 id="type">I turn messy thoughts into words worth reading.</h1>
     <span class="line" id="line"></span>
     <p>Hi, I'm Priya Tiwari, a content writer.</p>
-</section>
+  </section>
 
   <section id="writing">
     <h2 class="big">Writing</h2>
@@ -93,17 +81,18 @@ a.card{display:block;text-decoration:none}
 
   <section id="about">
     <h2 class="big">About</h2>
-    <!-- EDIT: write about yourself -->
     <p>Hello, everyone! I'm Priya Tiwari. I write for a living, and sometimes I write just because. I'm a work in progress, so what you read here might make you cry, nod along, or laugh out loud. Whatever it does, I hope it makes you forget your phone for a minute or two and lets you enjoy the words. If it does, tell me. Writers are bad at pretending we don't want to know.</p>
   </section>
 
-<dialog id="box">
-    <section id="contact">
+  <section id="contact">
     <h2 class="big">Say hello</h2>
     <div class="btns">
-    <a class="mail" href="mailto:priya.tiwari167@outlook.com?subject=Hello%20Priya">Mail me</a>
+      <a class="mail" href="mailto:priya.tiwari167@outlook.com?subject=Hello%20Priya">Mail me</a>
     </div>
   </section>
+</main>
+
+<dialog id="box">
   <button class="x" id="close">Close</button>
   <div id="read"></div>
 </dialog>
@@ -127,8 +116,8 @@ essays.forEach(e=>{
   if(!e.link)b.onclick=()=>{read.innerHTML=`<h2>${e.title}</h2>`+(e.image?`<img src="${e.image}" alt="">`:'')+e.body;box.showModal()};
   grid.append(b);
 });
+
 document.getElementById('close').onclick=()=>box.close();
-  document.getElementById('contactBtn').onclick=()=>box.showModal();
 box.addEventListener('click',ev=>{if(ev.target===box)box.close()});
 
 const h=document.getElementById('type'),line=document.getElementById('line');
