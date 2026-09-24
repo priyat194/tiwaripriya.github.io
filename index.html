@@ -67,12 +67,6 @@ a.card{display:block;text-decoration:none}
 [data-theme=dark] .card,[data-theme=dark] dialog{background:#1E1E45}
 [data-theme=dark] .card p{color:#B9BAE0}
 [data-theme=dark] nav a:not(.me):hover{color:#16163A}
-.shelf{display:grid;grid-template-columns:repeat(auto-fill,minmax(9rem,1fr));gap:1.2rem;margin-top:1.5rem}
-.book{background:#16163A;color:#fff;border:2px solid var(--ink);border-radius:10px;padding:1rem .8rem;min-height:11rem;display:flex;flex-direction:column;justify-content:flex-end;cursor:pointer;font:inherit;text-align:left;box-shadow:5px 5px 0 var(--ink);transition:transform .15s,box-shadow .15s}
-.book:hover,.book:focus-visible{transform:translate(-2px,-2px);box-shadow:8px 8px 0 var(--pink)}
-.book b{font:800 1rem "Bricolage Grotesque",sans-serif;line-height:1.2}
-.book span{font-size:.8rem;color:#c8c9e6;margin-top:.3rem}
-.shelf-end{margin-top:1.5rem}
 </style>
 </style>
 </head>
@@ -82,7 +76,6 @@ a.card{display:block;text-decoration:none}
   <a class="me" href="#top">Priya Tiwari</a>
   <a href="#writing">Writing</a>
   <a href="#about">About</a>
-  <a href="#bookshelf">My Bookshelf</a>
   <a href="Priya Tiwari - Resume.pdf" target="_blank">Resume</a>
   <a href="#contact">Contact</a>
     <button class="tg" id="theme">Dark mode</button>
@@ -105,18 +98,6 @@ a.card{display:block;text-decoration:none}
     <!-- EDIT: write about yourself -->
     <p>Hello, everyone! I'm Priya Tiwari. I write for a living, and sometimes I write just because. I'm a work in progress, so what you read here might make you cry, nod along, or laugh out loud. Whatever it does, I hope it makes you forget your phone for a minute or two and lets you enjoy the words. If it does, tell me. Writers are bad at pretending we don't want to know.</p>.
   </section>
-<section id="bookshelf">
-    <h2 class="big">My Bookshelf</h2>
-    <div class="shelf" id="shelf"></div>
-<p class="shelf-end">Recommend me your favorite book. <a href="mailto:priya.tiwari167@outlook.com?subject=Book%20recommendation">Click here to tell me</a>.</p></section>
-  <section id="contact">
-    <h2 class="big">Say hello</h2>
-    <div class="btns">
-    <a class="mail" href="mailto:priya.tiwari167@outlook.com?subject=Hello%20Priya">Mail me</a>
-          <a class="mail in" href="https://www.linkedin.com/in/priya-t-655911274" target="_blank" rel="noopener">LinkedIn</a>
-    </div>
-    <p>Or write to me at priya.tiwari167@outlook.com</p>
-</section>
 
 <dialog id="box">
   <button class="x" id="close">Close</button>
@@ -124,18 +105,6 @@ a.card{display:block;text-decoration:none}
 </dialog>
 
 <script>
-const books=[
-  {title:"Gunahon Ka Devta", author:"Dharamvir Bharati", review:"The writing made me cry. What do you mean a human being can be perfect for society and still be called a criminal."},
-  {title:"Men Without Women", author:"Haruki Murakami", review:"A collection of short stories that captures the quiet ache of heartbreak, isolation, and male vulnerability."}
-];
-const shelf=document.getElementById('shelf');
-books.forEach(b=>{
-  const el=document.createElement('button');
-  el.className='book';
-  el.innerHTML=`<b>${b.title}</b><span>${b.author}</span>`;
-  el.onclick=()=>{read.innerHTML=`<h2>${b.title}</h2><p style="color:#5B6478;margin-top:-.5rem">${b.author}</p><p>${b.review}</p>`;box.showModal()};
-  shelf.append(el);
-});
 const essays=[
   {
     title:"I Forgot How to Spell 'Souvenirs'",
